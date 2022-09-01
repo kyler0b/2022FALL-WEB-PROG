@@ -1,3 +1,3 @@
 # 2022FALL-WEB-PROG
 # 
-![My Picture](https://github.com/kyler0b/2022FALL-WEB-PROG/blob/main/IMG_1538.jpg?width=50) 
+<img src = "https://github.com/kyler0b/2022FALL-WEB-PROG/blob/main/IMG_1538.jpg" width = "100" height = "100"> 
