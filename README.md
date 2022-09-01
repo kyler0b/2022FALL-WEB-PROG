@@ -1,3 +1,3 @@
 # 2022FALL-WEB-PROG
 # 
-![My Picture](https://github.com/kyler0b/2022FALL-WEB-PROG/blob/main/IMG_1538.jpg?raw=true =100x100) 
+![My Picture](https://github.com/kyler0b/2022FALL-WEB-PROG/blob/main/IMG_1538.jpg?=100x100) 
