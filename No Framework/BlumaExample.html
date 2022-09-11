@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bluma Example</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+</head>
+<style>
+    *, a{
+        box-sizing: border-box;
+        color: white;
+    }
+    .a1{
+        color: black;
+    }
+    .a2{
+        flex-grow: 1;
+        font-weight: 700;
+    }
+    nav{
+        display: block;
+        background-color: #00d1b2;
+        color: white;
+        padding-top: 8px;
+        padding-left: 6px;
+        padding-bottom:3px;
+        min-height: 3.25rem;
+        position: relative;
+        z-index: 30;
+    }
+    nav div{
+        flex-direction: row;
+        display: inline-block;
+        color: white;
+        z-index: auto;
+        padding: 5px;
+        align-content: center;
+    }
+    .dropmenu{
+        position:relative;
+        display:inline-block;
+    }
+    .dropmenu a{
+        display: inline-block;
+        width: 100%;
+        align-content: center;
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
+    }
+    .dropcontent{
+        display: none;
+    }
+    .dropcontent a{ 
+        display: inline-block;
+        flex-direction: column;
+    }
+    .dropmenu:hover .dropcontent{
+        display:flex;
+        box-shadow: 0 8px 8px rgb(10 10 10 / 10%);
+        position: absolute;
+        background-color:white;
+        padding: 5px;
+        color: black;
+        padding-right: 3rem;
+        padding-top:5px;
+        flex-direction: column;
+    }
+    .btn{
+        float:right;
+        padding-right: 25px;
+    }
+    .twt{
+        color:black;
+        box-shadow: 0 8px 8px rgb(10 10 10 / 10%);
+        background-color: white;
+        border: none;
+        font-size:large;
+        text-align: center;
+        border-width: 1px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 3px;
+        padding-left: 1em;
+        padding-right: 1em;
+        cursor: pointer;
+        justify-content: center;
+        white-space: nowrap;
+    }
+    span{
+        padding-left:20px;
+        font-style:inherit;
+        font-weight:inherit;
+        cursor: pointer;
+        justify-content: center;
+    }
+    .arrow {
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        margin: 5px;
+    }
+    .arrow1{
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        margin: 5px;
+    }
+    .down {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+    .txt{
+        color:black;
+    }
+    .container{
+        background-color: #fff;
+        border-radius: 0.25rem;
+        float: left;
+        box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+        color: #4a4a4a;
+        width: 33.33%;
+        position: relative;
+        margin-top:50px;
+        margin-right:40px;
+        margin-left:40px;
+    }
+    .arrowbtn{
+        display: flex;
+        position:relative;
+        float: right;
+        cursor: pointer;
+    }
+    .componentcontainer{
+        background-color: transparent;
+        padding-top:10px;
+        padding-bottom:10px;
+        align-items: stretch;
+        color: black;
+        font-weight:bold;
+        box-shadow: 0 0.125em 0.25em rgb(10 10 10 / 10%);
+        display: flex;
+        align-items: center;
+        border-top: 1px solid #ededed;
+    }
+    .btncontainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.75rem;
+        color:#485fc7;
+    }
+    .midcontainer{
+        margin-top:50px;
+        background-color: #fff;
+        border-radius: 0.25rem;
+        float: left;
+        box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+        color: #4a4a4a;
+        width: 33.33%;
+        position: relative;
+        padding-left:10px;
+        margin-right:20px;
+    }
+    .tab{
+        overflow: hidden;
+        background-color: white;   
+    }
+    .tb{
+        cursor: pointer;
+        color: black;
+        background-color: white;
+        border:none;
+        padding-top:30px;
+        padding-bottom:10px;
+        padding-right:10px;
+    }
+    .tb:hover {
+        background-color: #ddd;
+    }
+    .toc{
+        position: relative;
+        display: block;
+        float: right;
+        color: black;
+        flex: none;
+        width: 25%;
+        margin-top: 50px;
+    }
+    .title{
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 1.125;
+        color: #363636;
+    }
+    .subtitle{
+        font-size: 1.25rem;
+        font-weight: 400;
+        color: #4a4a4a;
+        line-height: 1.25;
+    }
+    .menuheading{
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: #7a7a7a;
+        font-size: .75em;
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+    .speciallist{
+        background-color: #485fc7;
+        cursor: pointer;
+        margin-right: 80px;
+        text-decoration: none;
+    }
+    .p1{
+        padding-right:10px;
+        padding-left:10px;
+        padding-top:10px;
+        color:black;
+    }
+    ul{
+        border-left: 1px solid #dbdbdb;
+        margin: 10px;
+        padding-left: 10px;
+    }
+</style>
+<body>
+<nav>
+    <div><a class="nav" href="https://bulma.io"><img src="https://bulma.io/images/bulma-logo-white.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28"></a></div>
+    <div><a class="nav" href="https://bulma.io/" color = "white">Home</a></div>
+
+    <div class = "dropmenu"><a class="nav" href="https://bulma.io/documentation/overview/start/">Docs<i class="arrow down"></i></a>
+        <div class = "dropcontent">
+            <a class="a1" href="https://bulma.io/documentation/overview/start/">Overview</a>
+            <a class="a1" href="https://bulma.io/documentation/overview/modifiers/">Modifiers</a>
+            <a class="a1" href="https://bulma.io/documentation/columns/basics/">Columns</a>
+            <a class="a1" href="https://bulma.io/documentation/layout/container/">Layout</a>
+            <a class="a1" href="https://bulma.io/documentation/form/general/">Form</a>
+            <a class="a1" href="https://bulma.io/documentation/elements/box/">Elements</a>
+            <a class="a1" href="https://bulma.io/documentation/components/breadcrumb/">Components</a>
+
+        </div>
+    </div>
+
+    <div class = "btn"><button class = "twt">Tweet</button>
+        <span><i class="fa fa-download"></i>  Download</span>
+    </div>
+</nav>
+<div>
+    <div class = "container">
+        <div class = "componentcontainer"><p class = "p1 a2">Component <div class ="arrowbtn"><i class="arrow1 down"></i></p></div></div>
+        <div>
+            <p class = "p1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. @bulmaio. #css #responsive
+            11:09 PM - 1 Jan 2016</p>
+        </div>    
+        <div class = "btncontainer">
+            <a href="#" class="btncontainer">Save</a>
+            <a href="#" class="btncontainer">Edit</a>
+            <a href="#" class="btncontainer">Delete</a>
+         </div>
+    </div>
+    <div class = "midcontainer">
+        <p class="control has-icons-left">
+            <div class = "tab">
+                <button class = "tb">Current</button>
+                <button class = "tb">Completed</button>
+                <button class = "tb">Upcoming</button>
+                <button class = "tb">All</button>
+            </div>
+            <input class="input is-primary" type="text" placeholder="New Task">
+            <span class="icon is-left">
+              <i class="fas fa-calendar-plus" aria-hidden="true"></i>
+            </span>
+          </p>
+        <a class="panel-block"><input type="checkbox" checked="">Make Bulma great again</a>
+        <a class="panel-block"><input type="checkbox">Add some more features</a>
+        <a class="panel-block"><input type="checkbox">Make a github account</a>
+        <a class="panel-block"><input type="checkbox">Learn how to use github</a>
+        <a class="panel-block"><input type="checkbox">add a .gitignore file</a>
+    </div>
+    <div class = "toc">
+        <header class = "title">Table of contents</header>
+        <h3 class = "subtitle">Intra-page navigation</h3>
+        <h4 class = "menuheading">General</h4>
+        <div>
+            <h3><a class = "a1">Dashboard</a></h3>
+            <h3><a class = "a1">Customers</a></h3>
+        </div>
+        <h4 class = "menuheading">Administration</h4>
+        <div>
+            <h3><a class = "a1">Team Setting</a></h3>
+        </div>
+
+        <h4 class = "speciallist">Manage your team</h4>
+        <div>
+            <ul>
+                <h3><a class = "a1">Members</a></h3>
+                <h3><a class = "a1">Plugins</a></h3>
+                <h3><a class = "a1">Add a member</a></h3>
+            </ul>
+        </div>
+        <div>
+            <h3><a class = "a1">Invitation</a></h3>
+            <h3><a class = "a1">Cloud Storage Environment Settings</a></h3>
+            <h3><a class = "a1">Authentication</a></h3>
+        </div>
+        <h4 class = "menuheading">Transactions</h4>
+            <div>
+                <h3><a class = "a1">Payments</a></h3>
+                <h3><a class = "a1">Transactions</a></h3>
+                <h3><a class = "a1">Balance</a></h3>
+            </div>
+    </div>
+</div>
+</body>
+</html>

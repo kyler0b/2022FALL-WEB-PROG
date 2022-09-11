@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Example</title>
+    
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: rgb(220, 250, 230);
+            margin: 0;
+            padding: 0;
+        }
+        nav{
+            background-color: rgb(39, 156, 64);
+            flex-direction: row;
+        }
+        nav a{
+            background-color: rgb(39, 156, 64);
+            position: relative;
+            width: 100%;
+            text-decoration: none;
+        }
+        nav a:hover{
+            background-color: rgb(39, 196, 64);
+            position: relative;
+            width: 100%;
+        }
+        .dropdown{
+            position: relative;
+            display:inline-block;
+        }
+        .dropdown a{
+            display: flex;
+            width: 100%;
+            align-content: center;
+            padding-top: 5px;
+            padding-left: 5px;
+            padding-bottom: 5px;
+        }
+        .dropcontent{
+            display: none;
+            text-align: center;
+            flex-direction: column;
+            position: absolute;
+            width: 100%;
+            align-content: center;
+            font-weight: normal;
+            font-size: medium;
+        }
+        .dropdown:hover .dropcontent {
+            display: flex;
+            width: 100%;
+            align-content: center;
+        }
+        h2,label {
+            margin: 0;
+            padding-left: 8px;
+            min-width: 100px;
+            font-size: large;
+        }
+        .edit {
+            background-color: rgb(39, 156, 64);
+            padding-top: 5px;
+            margin: 0;
+            border: none;
+            font-weight: normal;
+            font-size: large; 
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class = "dropdown">
+            <h2>File</h2>
+                <div class = "dropcontent">
+                    <a href>New</a>
+                    <a href>Open</a>
+                    <a href>Save</a>
+                    <a href>Print</a>
+                    <a href>Close</a>
+                </div>
+        </div>
+        <div class = "dropdown">
+                <h2><button class = "edit">Edit</button></h2>
+                <div class = "dropcontent">
+                    <a href>Undo</a>
+                    <a href>Redo</a>
+                    <a href>Cut</a>
+                    <a href>Copy</a>
+                    <a href>Paste</a>
+                    <a href>Delete</a>
+                    <a href>Select All</a>
+                </div>
+        </div>
+        <div class = "dropdown">
+                <h2>View</h2>
+                <div class = "dropcontent">
+                    <a href>Zoom In</a>
+                    <a href>Zoom Out</a>
+                    <a href>Actual Size</a>
+                    <a href>Fit Page</a>
+                    <a href>Fit Width</a>
+                    <a href>Fit Height</a>
+                    <a href>Rotate Left</a>
+                    <a href>Rotate Right</a>
+                    <a href>Full Screen</a>
+                </div>
+        </div>
+    </nav>
+</body>
+</html>
