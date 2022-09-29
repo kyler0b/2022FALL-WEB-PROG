@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
   res.end('Happy Sweet New Year');
 })
 
-app.listen(port, () => {
+app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
 
