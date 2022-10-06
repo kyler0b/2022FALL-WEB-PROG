@@ -4,11 +4,6 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
-import ttt, {add, subtract} from './stores/temp';
-console.log({ttt});
-const bigger = add(ttt, 1);
-console.log({bigger});
-
 import './assets/main.scss'
 
 const app = createApp(App)
