@@ -4,6 +4,7 @@ import NavView from './components/Nav.vue';
 </script>
 
 <template>
+
   <header>
     <NavView />
   </header>
@@ -11,8 +12,8 @@ import NavView from './components/Nav.vue';
   <div class = 'container'>
     <RouterView />
   </div>
+  
 </template>
 
 <style scoped>
-
 </style>

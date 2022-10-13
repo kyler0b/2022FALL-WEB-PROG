@@ -1,11 +1,14 @@
 <script setup lang = "ts">
     import { ref } from 'vue';
+    import {RouterLink} from "vue-router";
+    import LoginBadge from "./LoginBadge.vue";
 
     let isActive = ref(false);
 
 </script>
 <template>
     <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+      <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="https://bulma.io">
             <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
@@ -20,13 +23,11 @@
       
         <div id="navbarBasicExample" class="navbar-menu" a :class="{ 'is-active': isActive}">
           <div class="navbar-start">
-            <a class="navbar-item">
-              Home
-            </a>
-      
-            <a class="navbar-item">
-              Documentation
-            </a>
+
+          <router-link to = "/" class ="navbar-item">Home</router-link>
+        
+          <router-link to = "/store" class = "navbar-item">Store</router-link>
+  
       
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
@@ -34,9 +35,9 @@
               </a>
       
               <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  About
-                </a>
+
+                <router-link to = "/about" class = "navbar-item">About</router-link>
+              
                 <a class="navbar-item">
                   Jobs
                 </a>
@@ -53,17 +54,18 @@
       
           <div class="navbar-end">
             <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-primary">
-                  <strong>Sign up</strong>
-                </a>
-                <a class="button is-light">
-                  Log in
-                </a>
-              </div>
+              <login-badge></login-badge>
             </div>
           </div>
         </div>
+      </div>
       </nav>
 
 </template>
+
+<style>
+    .router-link-active {
+        
+        border-bottom: #00AA00 5px solid;
+    }
+</style>

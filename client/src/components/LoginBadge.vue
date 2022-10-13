@@ -1,0 +1,21 @@
+<script lang = "ts">
+    import session, {login, logout} from '../stores/session' //default export and non-default export
+</script>
+<template>
+              <div class="buttons" v-if= "session.user == null">
+                <a class="button is-primary">
+                  <strong>Sign up</strong>
+                </a>
+                <a class="button is-light" @click = "login('Kyle', 'Robinson')">
+                  Log in
+                </a>
+              </div>
+              <div v-else>
+                Welcome {{session.user.firstName}} {{session.user.lastName}}
+                (<a @click="logout()">Log out</a>)
+              </div>
+</template>
+
+<style scoped>
+
+</style>
