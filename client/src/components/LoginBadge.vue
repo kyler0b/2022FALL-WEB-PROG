@@ -1,5 +1,5 @@
-<script lang = "ts">
-    import session, {login, logout} from '../stores/session' //default export and non-default export
+<script setup lang = "ts">
+    import session, {login, logout} from '../stores/session' 
 </script>
 <template>
               <div class="buttons" v-if= "session.user == null">
