@@ -8,6 +8,9 @@ const port = process.env.PORT || 3000;
 
 app.use((req, res, next) => {
     res.setHeader('SUNY', 'MY SUNY');
+    res.setHeader('Acess-Control-Allow-Origin', '*');
+    res.setHeader('Acess-Control-Allow-Methods', 'GET,POST, PATCH, DELETE');
+    res.setHeader('Acess-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
 
 })
