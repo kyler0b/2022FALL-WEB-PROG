@@ -1,21 +1,18 @@
-import myfetch from "@/services/myfetch";
+import { api } from "./session";
+
 
 
 export function getProducts() {
-  return myfetch<ListEnvelope<Product>>('products');
-        //.then( x=> x.products);
+  return api<ListEnvelope<Product>>('products');
 }
 
 export function getProduct(id: number) {
-  return myfetch<Product>(`products/${id}`)
+  return api<Product>(`products/${id}`)
 }
 
-export function deleteProduct(id: number) {
-  data.products = data.products.filter( (product) => product.id !== id );
-}
 
 export interface ListEnvelope<T> {
-    products: t[]
+    products: T[]
     total: number
     skip: number
     limit: number
